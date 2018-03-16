@@ -2,28 +2,59 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width,inital-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous" />
     <title>Title</title>
 </head>
 <body>
-<a href ="/add">Add a message</a><br />
-<table>
+
+<div class="container">
+    <h6 class="lead"><a href ="/add">Add a message</a><br /></h6>
+    <div class="jumbotron">
+        <div th:each="message : ${messages}">
+            <h5 class="lead" th:text="${message.content}"></h5>
+            <p><small class="lead" th:text="${message.sentby}"></small></p>
+            <p><small class="lead" th:text="${message.posteddate}"></small></p>
+            <br />
+            <p><a th:href="@{/view/{id}(id=${message.id})}">View</a></p>
+        </div>
+
+    </div>
+</div>
+
+
+<!--<table>
     <tr>
-        <th>Content</th>
-        <th>Posted Date</th>
-        <th>Sent By</th>
-        <th>Actions</th>
+        <th class="lead">Content</th>
+        <th class="lead">Posted Date</th>
+        <th class="lead">Sent By</th>
+        <th class="lead">Actions</th>
 
     </tr>
     <tr th:each="message : ${messages}">
-        <td th:text="${message.content}"></td>
-        <td th:text="${message.posteddate}"></td>
-        <td th:text="${message.sentby}"></td>
+        <td class="lead" ></td>
+        <br />
+      &lt;!&ndash;  <td class="lead" th:text="${message.posteddate}"></td>&ndash;&gt;
+        <small><td class="lead" th:text="${message.sentby}"></td></small>
         <td>
 
             <a th:href="@{/view/{id}(id=${message.id})}">View</a>
 
         </td>
     </tr>
-</table>
+</table>-->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous" ></script>
 </body>
 </html>

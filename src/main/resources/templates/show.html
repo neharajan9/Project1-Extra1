@@ -2,18 +2,37 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width,inital-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous" />
     <title>Title</title>
 </head>
 <body>
-<a href="/">Show All The Messages</a>
+
+<div class="container">
+    <div class="jumbotron">
+<p class="lead"><a href="/">Show All The Messages</a></p>
 <br />
 <br />
 
-Title: <span th:text="${message.content}"></span><br />
-Instructor : <span th:text="${message.posteddate }"></span><br />
-Description: <span th:text="${message.sentby}"></span><br />
+        <span class="lead">Content:</span> <span class="lead" th:text="${message.content}"></span><br />
+        <span class="lead">Posted Date:</span> <span  class="lead" th:text="${message.posteddate }"></span><br />
+        <span class="lead">Sent By:</span> <span class="lead"  th:text="${message.sentby}"></span><br />
 
-<!--<a th:href="@{/delete/{id}(id=${course.id})}">Delete this message</a>-->
-
+</div>
+</div>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous" ></script>
 </body>
 </html>

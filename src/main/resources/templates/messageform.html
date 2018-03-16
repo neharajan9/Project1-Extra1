@@ -2,27 +2,64 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width,inital-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous" />
     <title>Title</title>
 </head>
 <body>
-<form action="#" th:action="@{/process}" th:object="${message}" method="post">
-    <input type="hidden" th:field="*{id}" />
-    Content :<br /><textarea rows="5" th:field="*{content}" ></textarea>
-    <span th:if="${#fields.hasErrors('content')}"
-          th:errors="*{content}"></span><br />
+<br />
+<br />
 
-    Posteddate :<input type="text" th:field="*{posteddate}" />
-    <span th:if="${#fields.hasErrors('posteddate')}"
-          th:errors="*{posteddate}"></span><br />
+<div class="container">
+    <div class="jumbotron">
+<form class="form-horizontal" action="#" th:action="@{/process}" th:object="${message}" method="post">
 
-    Sent By :<input type="text" th:field="*{sentby}" />
-    <span th:if="${#fields.hasErrors('sentby')}"
-          th:errors="*{sentby}"></span><br />
+    <div class="form-group">
+        <label for="content" class="col-sm-2 control-label">Content</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" rows="5"  th:field="*{content}" ></textarea>
+            <span   th:if="${#fields.hasErrors('content')}"
+                    th:errors="*{content}"></span><br />
+        </div>
+    </div>
 
+    <div class="form-group">
+        <label for="posteddate" class="col-sm-2 control-label">Posted Date</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"  th:field="*{posteddate}" />
+            <span   th:if="${#fields.hasErrors('content')}"
+                    th:errors="*{posteddate}"></span><br />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="sentby" class="col-sm-2 control-label">Sent By</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"  th:field="*{sentby}" />
+            <span  class="form-control" th:if="${#fields.hasErrors('sentby')}"
+                   th:errors="*{sentby}"></span><br />
+        </div>
+    </div>
 
-    <input type="submit" value="Submit" />
-
-
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
 </form>
+    </div>
+</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous" ></script>
 </body>
 </html>
